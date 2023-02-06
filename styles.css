@@ -1,0 +1,116 @@
+/* Global Variables */
+:root {
+    --sans-font: 'Rubik', sans-serif;
+    --serif-font: 'Noto Serif', serif;
+    --alt-font: 'Bangers', cursive;
+
+    --background: #F6F8F9;
+    --light-highlight: #A1B7B3;
+    --primary: #A5BDD6;
+    --dark-highlight: #899CCB;
+    --dark: #2B92EC;
+    --black: #000000;
+}
+
+/* Global Settings */
+
+* {
+    box-sizing: content-box;
+    font-family: 'Noto Serif', serif;
+    font-size: 24px;
+    color: var(--black);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Rubik', sans-serif;
+}
+
+h1 {
+    font-size: 55px;
+}
+
+h2, h3 {
+    font-size: 44px;
+}
+
+h4, h5, h6 {
+    font-size: 38px;
+}
+
+p {
+    font-size: 24px;
+}
+
+i, em {
+    font-family: var(--serif-font);
+}
+
+/* Intro Animation */
+
+.intro {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--black);
+    z-index: 100;
+}
+
+/* Navigation */
+
+nav {
+    grid-area: nav;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--background);
+}
+
+nav ul {
+    display: flex;
+    padding: 0;
+    flex-direction: row;
+    column-gap: 2rem;
+    align-content: center;
+    justify-content: center;
+}
+
+nav li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 4vh;
+    width: 7vw;
+    padding: 0.2rem 0rem;
+    background-color: var(--primary);
+    border-radius: 1rem;
+    list-style: none;
+}
+
+#nav_el {
+    display: block;
+    font-family: var(--sans-font);
+}
+
+/* Body */
+
+body {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+}
+
+.container_grid {
+
+    display: grid;
+    grid: [row1-start] ". nav ." 10vh [row1-end]
+          [row2-start] ". main ." 80vh [row2-end]
+          [row3-start] ". footer." 10vh [row3-end]
+          / 5vw auto 5vw;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--background);
+}
