@@ -16,11 +16,39 @@
     <body>
         <div class="intro">
             <div id="intro_text"> 
-                <span id="intro_text_left">Left </span>
-                <span id="intro_text_center">Hi </span>
-                <span id="intro_text_right">Right</span>
+                <div id="intro_text_left"></div>
+                <div id="intro_text_center">Hi</div>
+                <div id="intro_text_right"></div>
             </div>
         </div>
+        <script>
+            const text_right = document.getElementById("intro_text_right");
+            const text_center = document.getElementById("intro_text_center");
+            const text_left = document.getElementById("intro_text_left");
+
+            const text_right_array = ["", "", "Blah", "end"]; 
+            const text_center_array = ["Adam Warsing", "a", "Blah", "end"]; 
+            const text_left_array = ["I'm", "", "Blah", "end"];
+
+            textCycle = (target, array) => {
+                target.addEventListener("animationiteration", () => {
+                    target.innerHTML = array[0];
+                    array.shift();
+                    console.log(target.getBoundingClientRect().top)
+                    if (array.length == 0){
+                        target.style.animationPlayState = "paused";
+                    }
+                })
+
+            }
+
+            window.onload = () => {
+                textCycle(text_right, text_right_array);
+                textCycle(text_center, text_center_array);
+                textCycle(text_left, text_left_array);
+            }
+
+        </script>
         <div class="container_grid">
             <nav>
                 <ul>

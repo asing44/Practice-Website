@@ -61,6 +61,7 @@ i, em {
 
 #intro_text {
     color: var(--background);
+    clip-path: margin-box;
     z-index: 101;
 }
 
@@ -73,15 +74,36 @@ i, em {
 }
 
 #intro_text_center {
-    animation: centerrotate 1s ease-in-out forwards 1s;
+    animation: vertMove 3s ease-in-out both infinite;
 }
 
-@keyframes centerrotate {
-    from {
-        transform: rotateX(0deg);
+#intro_text_right {
+    animation: vertMove 3s ease-in-out alternate-reverse both infinite;
+}
+#intro_text_left {
+    animation: vertMove 3s ease-in-out reverse both infinite;
+}
+
+@keyframes vertMove {
+    
+    0% {
+        transform: translateY(15vh);
+        opacity: 0%;
     }
-    to {
-        transform: rotateX(90deg);
+
+    20% {
+        transform: translateY(0vh);
+        opacity: 100%;
+    }
+
+    80% {
+        transform: translateY(0vh);
+        opacity: 100%;
+    }
+
+    100% {
+        transform: translateY(-15vh);
+        opacity: 0%;
     }
 }
 
