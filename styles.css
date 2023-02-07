@@ -49,10 +49,40 @@ i, em {
 
 .intro {
     position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 100vh;
     width: 100vw;
     background-color: var(--black);
+    perspective: 800px;
     z-index: 100;
+}
+
+#intro_text {
+    color: var(--background);
+    z-index: 101;
+}
+
+#intro_text_left, #intro_text_center, #intro_text_right {
+    display: inline-block;
+    margin: 1vw;
+    color: var(--background);
+    font-size: 4rem;
+    z-index: 101;
+}
+
+#intro_text_center {
+    animation: centerrotate 1s ease-in-out forwards 1s;
+}
+
+@keyframes centerrotate {
+    from {
+        transform: rotateX(0deg);
+    }
+    to {
+        transform: rotateX(90deg);
+    }
 }
 
 /* Navigation */
