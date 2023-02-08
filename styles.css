@@ -56,7 +56,10 @@ i, em {
     width: 100vw;
     background-color: var(--black);
     z-index: 100;
+    overflow: hidden;
 }
+
+/* Intro Text Animation */
 
 #intro_text {
     position: relative;
@@ -146,6 +149,114 @@ i, em {
     20% {
         transform: translateY(15vh);
     }
+}
+
+/* Intro Examples Animation */
+
+.intro_examples > div {
+    position: absolute;
+    height: 25vh;
+    width: 25vh;
+    border-radius: 1rem;
+    box-shadow: .5rem .5rem 2rem rgba(255, 255, 255, 0.1);
+    transform: 
+        rotate3d(.5,-.866,0,25deg)
+        rotate(5deg);
+    overflow: hidden;
+}
+
+#Illustrator {
+    top: 70vh;
+    left: -30vw;
+    background: url("./images_and_videos/Illustrator.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    animation: IllustratorAnimate 11s ease-in-out 4s forwards;
+}
+
+#Animator {
+    top: 25vh;
+    left: 130vw;
+    animation: AnimatorAnimate 11s ease-in-out 4s forwards;
+}
+
+#Learner {
+    top: 40vh;
+    left: -30vw;
+    animation: LearnerAnimate 11s ease-in-out 7s forwards;
+}
+
+#Animator video, #Learner video {
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+}
+
+@keyframes IllustratorAnimate {
+    
+    0% {
+        top: 70vh;
+        left: -30vw;
+    }
+
+    25% {
+        top: 65vh;
+    }
+
+    50% {
+        top: 72vh;
+    }
+
+    100% {
+        top: 70vh;
+        left: 100vw;
+    }
+    
+}
+
+@keyframes AnimatorAnimate {
+    
+    0% {
+        top: 25vh;
+        left: 130vw;
+    }
+
+    25% {
+        top: 35vh;
+    }
+
+    50% {
+        top: 22vh;
+    }
+
+    100% {
+        top: 25vh;
+        left: 30vw;
+    }
+    
+}
+
+@keyframes LearnerAnimate {
+    
+    0% {
+        top: 40vh;
+        left: -30vw;
+    }
+
+    25% {
+        top: 45vh;
+    }
+
+    50% {
+        top: 38vh;
+    }
+
+    100% {
+        top: 40vh;
+        left: 70vw;
+    }
+    
 }
 
 /* Navigation */
