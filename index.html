@@ -27,11 +27,12 @@
             const text_right = document.getElementById("intro_text_right");
             const text_center = document.getElementById("intro_text_center");
             const text_left = document.getElementById("intro_text_left");
+            const intro = document.getElementsByClassName("intro")[0];
 
             const text_right_array = ["", "", "Illustrator", "Animator", "Learner", ""]; 
             const text_center_array = ["Adam Warsing", "Student", "passionate", "exploring", "dedicated", ""]; 
             const text_left_array = ["I'm", ""];
-
+            // Cycle between the text arrays
             textCycle = (target, array) => {
                 target.addEventListener("animationiteration", () => {
                     target.style.width = "auto";
@@ -49,11 +50,34 @@
                         text_welcome.style.display = "block";
                         text_welcome.style.animationPlayState = "running";
                     }
-
                 })
-
             }
+            // Make intro display none and animate
+            setTimeout(() => {
+                let id = null;
+                console.log("now!")
+                if (text_welcome.style.animationPlayState == "running"){
+                            
+                    var pos = 0;
 
+                    clearInterval(id);
+                    id = setInterval(frame, 1);
+
+                    function frame() {
+                        
+                        if (Number.parseFloat(pos) == 50) {
+                            clearInterval(id);
+                            intro.style.display = "none";
+                        }
+
+                        else {
+                            intro.style.clipPath = "inset(" + pos + "% "  + pos + "% " + pos + "% " + pos + "%)";
+                            pos += 0.5;
+                        }
+                    }
+                }
+            }, 14000)
+            // Start when loaded
             window.onload = () => {
                 textCycle(text_right, text_right_array);
                 textCycle(text_center, text_center_array);
