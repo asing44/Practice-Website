@@ -16,28 +16,40 @@
     <body>
         <div class="intro">
             <div id="intro_text"> 
+                <div id="intro_text_welcome">Welcome</div>
                 <div id="intro_text_left"></div>
                 <div id="intro_text_center">Hi</div>
                 <div id="intro_text_right"></div>
             </div>
         </div>
-        <script>
+        <script> // Intro Animation Script
+            const text_welcome = document.getElementById("intro_text_welcome");
             const text_right = document.getElementById("intro_text_right");
             const text_center = document.getElementById("intro_text_center");
             const text_left = document.getElementById("intro_text_left");
 
-            const text_right_array = ["", "", "Blah", "end"]; 
-            const text_center_array = ["Adam Warsing", "a", "Blah", "end"]; 
-            const text_left_array = ["I'm", "", "Blah", "end"];
+            const text_right_array = ["", "", "Illustrator", "Animator", "Learner", ""]; 
+            const text_center_array = ["Adam Warsing", "Student", "passionate", "exploring", "dedicated", ""]; 
+            const text_left_array = ["I'm", ""];
 
             textCycle = (target, array) => {
                 target.addEventListener("animationiteration", () => {
+                    target.style.width = "auto";
                     target.innerHTML = array[0];
                     array.shift();
-                    console.log(target.getBoundingClientRect().top)
+                    
                     if (array.length == 0){
-                        target.style.animationPlayState = "paused";
+                        target.style.animation = "textMoveFinal 2s ease-in-out both"
                     }
+
+                    if (text_center_array.length == 0) {
+                        text_right.style.display = "none";
+                        text_center.style.display = "none";
+                        text_left.style.display = "none";
+                        text_welcome.style.display = "block";
+                        text_welcome.style.animationPlayState = "running";
+                    }
+
                 })
 
             }
