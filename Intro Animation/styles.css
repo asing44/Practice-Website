@@ -1,0 +1,286 @@
+/* Global Variables */
+:root {
+    --sans-font: 'Rubik', sans-serif;
+    --serif-font: 'Noto Serif', serif;
+    --alt-font: 'Bangers', cursive;
+
+    --background: #F6F8F9;
+    --light-highlight: #A1B7B3;
+    --primary: #A5BDD6;
+    --dark-highlight: #899CCB;
+    --dark: #2B92EC;
+    --black: #000000;
+}
+
+/* Global Settings */
+
+* {
+    box-sizing: content-box;
+    font-family: 'Noto Serif', serif;
+    font-size: 24px;
+    color: var(--black);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Rubik', sans-serif;
+}
+
+h1 {
+    font-size: 55px;
+}
+
+h2, h3 {
+    font-size: 44px;
+}
+
+h4, h5, h6 {
+    font-size: 38px;
+}
+
+p {
+    font-size: 24px;
+}
+
+i, em {
+    font-family: var(--serif-font);
+}
+
+/* Intro Animation */
+
+.intro {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--black);
+    z-index: 100;
+    overflow: hidden;
+}
+
+/* Intro Text Animation */
+
+#intro_text {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 90vw;
+    color: var(--background);
+    clip-path: margin-box;
+    z-index: 101;
+}
+
+#intro_text_left, #intro_text_center, #intro_text_right {
+    display: block;
+    text-align: center;
+    margin: 1vw;
+    color: var(--background);
+    font-size: 4rem;
+    z-index: 101;
+}
+
+#intro_text_welcome {
+    display: none;
+    text-align: center;
+    margin: 1vw;
+    color: var(--background);
+    font-size: 4rem;
+    z-index: 101;
+    animation: textMoveFinal 2s ease-in-out forwards;
+    animation-play-state: paused;
+}
+
+#intro_text_center {
+    animation: textMove 2s ease-in-out both infinite;
+}
+
+#intro_text_right {
+    animation: textMove 2s ease-in-out reverse both infinite;
+    font-family: var(--alt-font);
+}
+
+#intro_text_left {
+    animation: textMove 2s ease-in-out alternate-reverse both infinite;
+}
+
+@keyframes textMove {
+    
+    0% {
+        transform: translateY(15vh);
+        opacity: 0%;
+    }
+
+    20% {
+        transform: translateY(0vh);
+        opacity: 100%;
+    }
+
+    80% {
+        transform: translateY(0vh);
+        opacity: 100%;
+    }
+
+    100% {
+        transform: translateY(-15vh);
+        opacity: 0%;
+    }
+}
+
+@keyframes textMoveFinal {
+    
+    0% {
+        transform: translateY(-15vh);
+    }
+
+    20% {
+        transform: translateY(0vh);
+    }
+
+}
+
+@keyframes textMoveOut {
+    
+    0% {
+        transform: translateY(0vh);
+    }
+    
+    20% {
+        transform: translateY(15vh);
+    }
+}
+
+/* Intro Examples Animation */
+
+.intro_examples > div {
+    position: absolute;
+    height: 25vh;
+    width: 25vh;
+    border-radius: 1rem;
+    box-shadow: .5rem .5rem 2rem rgba(255, 255, 255, 0.1);
+    transform: 
+        rotate3d(.5,-.866,0,25deg)
+        rotate(5deg);
+    overflow: hidden;
+}
+
+#Illustrator {
+    top: 70vh;
+    left: -30vw;
+    background: url("./images_and_videos/Illustrator.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    animation: IllustratorAnimate 11s ease-in-out 4s forwards;
+}
+
+#Animator {
+    top: 25vh;
+    left: 130vw;
+    animation: AnimatorAnimate 11s ease-in-out 4s forwards;
+}
+
+#Learner {
+    top: 40vh;
+    left: -30vw;
+    animation: LearnerAnimate 11s ease-in-out 7s forwards;
+}
+
+#Animator video, #Learner video {
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+}
+
+@keyframes IllustratorAnimate {
+    
+    0% {
+        top: 70vh;
+        left: -30vw;
+    }
+
+    25% {
+        top: 65vh;
+    }
+
+    50% {
+        top: 72vh;
+    }
+
+    100% {
+        top: 70vh;
+        left: 100vw;
+    }
+    
+}
+
+@keyframes AnimatorAnimate {
+    
+    0% {
+        top: 25vh;
+        left: 130vw;
+    }
+
+    25% {
+        top: 35vh;
+    }
+
+    50% {
+        top: 22vh;
+    }
+
+    100% {
+        top: 25vh;
+        left: 30vw;
+    }
+    
+}
+
+@keyframes LearnerAnimate {
+    
+    0% {
+        top: 40vh;
+        left: -30vw;
+    }
+
+    25% {
+        top: 45vh;
+    }
+
+    50% {
+        top: 38vh;
+    }
+
+    100% {
+        top: 40vh;
+        left: 70vw;
+    }
+    
+}
+
+/* Body */
+
+body {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+}
+
+.container_grid {
+
+    display: grid;
+    grid: [row1-start] ". nav ." 10vh [row1-end]
+          [row2-start] ". main ." 80vh [row2-end]
+          [row3-start] ". footer." 10vh [row3-end]
+          / 5vw auto 5vw;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--background);
+}
+
+/* Footer */

@@ -1,0 +1,441 @@
+/* Global Variables */
+:root {
+    --sans-font: 'Rubik', sans-serif;
+    --serif-font: 'Noto Serif', serif;
+    --alt-font: 'Bangers', cursive;
+
+    --background: #F6F8F9;
+    --light-highlight: #A1B7B3;
+    --primary: #A5BDD6;
+    --dark-highlight: #899CCB;
+    --dark: #2B92EC;
+    --black: #000000;
+    --accent-1: #D6BACF;
+    --accent-2: #A5D69A;
+    --accent-3: #4E6B8A;
+}
+
+/* Global Settings */
+
+* {
+    box-sizing: content-box;
+    font-family: 'Noto Serif', serif;
+    font-size: 24px;
+    color: var(--black);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Rubik', sans-serif;
+    text-align: center;
+}
+
+h1 {
+    font-size: 55px;
+}
+
+h2 {
+    font-size: 2.7rem;
+    color: var(--black);
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: var(--black);
+}
+
+h4, h5, h6 {
+    font-size: 38px;
+}
+
+p {
+    font-size: 24px;
+}
+
+i, em {
+    font-family: var(--serif-font);
+}
+
+a {
+    text-decoration: none;
+    color: var(--dark-highlight);
+}
+
+li {
+    list-style: none;
+}
+
+/* Body */
+
+body {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+    overflow-y: scroll;
+}
+
+.container_grid {
+    display: grid;
+    grid: [row1-start] ". projects ." 90vh [row1-end]
+          [row2-start] ". main ." 90vh [row2-end]
+          [row3-start] ". footer." 10vh [row3-end]
+          / 5vw auto 5vw;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--background);
+}
+
+/* Projects List Start*/
+
+.projects {
+    display: flex;
+    height: 30rem;
+    width: 65rem;
+    border-radius: 2rem;
+    margin: auto auto;
+    grid-area: projects;
+}
+
+.projects_text {
+    height: 100%;
+    width: 25%;
+}
+
+.projects_text > h2 {
+    margin-top: 4rem;
+    padding: 0.7rem;
+    height: fit-content;
+    text-align: left;
+}
+
+.projects_list {
+    display: flex;
+    flex-basis: 100%;
+    gap: 2rem;
+    align-items: center;
+    height: 100%;
+    width: 75%;
+    padding: 0 2rem;
+}
+
+.project {
+    position: relative;
+    height: 90%;
+    width: 100%;
+    background-color: var(--light-highlight);
+    border-radius: 2rem;
+    overflow: hidden;
+    transition: all 500ms ease-in-out;
+}
+
+.project > h3 {
+    display: block;
+    position: absolute;
+    height: fit-content;
+    width: fit-content;
+    right: 2rem;
+    bottom: 1rem;
+    color: white;
+    opacity: 0%;
+    white-space: nowrap;
+    transition: 
+        opacity 500ms
+}
+
+.project_block {
+    position: absolute;
+    width: 5rem;
+    height: 5rem;
+    left: 0rem;
+    bottom: 2rem;
+    opacity: 100%;
+    background-color: var(--light-highlight);
+    transition: 
+        opacity 500ms
+}
+
+.project_block > h3 {
+    transform: rotate(-90deg);
+    white-space: nowrap;
+    padding-left: 1rem;
+    color: var(--background)
+}
+
+.P1B {
+    background-color: var(--accent-1);
+}
+
+.P2B {
+    background-color: var(--accent-2);
+}
+
+.P3B {
+    background-color: var(--accent-3);
+}
+
+#projects_button {
+    position: absolute;
+    top: 28rem;
+    left: 10rem;
+    height: 5rem;
+    width: 15rem;
+    text-align: center;
+    background-color: var(--dark);
+    cursor: pointer;
+    transition: all 500ms;
+    overflow: hidden;
+}
+
+#projects_button span {
+    position: absolute;
+    top: 1.6rem;
+    right: 3.75rem;
+    font-family: var(--sans-font);
+    font-size: 1.5rem;
+    color: var(--background);
+    z-index: 1;
+}
+
+#projects_button::after {
+    content: "";
+    position: absolute;
+    left: 0rem;
+    top: 0rem;
+    height: 100%;
+    width: 15rem;
+    background-color: var(--dark-highlight);
+    cursor: pointer;
+    transition: height 500ms ease-in-out;
+}
+
+#projects_button:hover::after {
+    height: 0%;
+}
+
+/* Project Hover States */
+
+.project:hover {
+    width: 200%;
+    cursor: pointer;
+}
+
+.project:hover > h3 {
+    opacity: 100%;
+}
+
+.project:hover .project_block {
+    opacity: 0%;
+}
+
+/* Project List End */
+
+/* Main Start */
+
+.main {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    height: 75rem;
+    width: 65rem;
+    margin: 2rem auto;
+    grid-area: main;
+}
+
+.main > h2 {
+    font-size: 2rem;
+}
+
+/* Personal Projects Categories */
+
+.personal_projects_category {
+    display: flex;
+    column-gap: 4rem;
+    padding: 0;
+    margin-top: -0.2rem;
+    margin-bottom: 1.62rem;
+    width: 55rem;
+    align-self: center;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;;
+}
+
+.personal_projects_category li {
+    display: block;
+    position: relative;
+    width: 5rem;
+    text-align: center;
+}
+
+.personal_projects_category button {
+    position: relative;
+    width: 4rem;
+    border: none;
+    background-color: transparent;
+}
+
+.personal_projects_category span {
+    position: relative;
+    font-size: 0.8rem;
+    width: fit-content;
+}
+
+.personal_projects_category span::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0.5rem;
+    left: 0rem;
+    height: 1rem;
+    width: 100%;
+    border-bottom: .1rem solid var(--dark);
+    opacity: 0%;
+    transition: all 500ms ease-in-out;
+}
+
+
+.personal_projects_category span:hover {
+    color: var(--dark);
+}
+
+.personal_projects_category span:hover::after  {
+    top: 0.2rem;
+    opacity: 100%;
+}
+
+.project_category.active > span::after  {
+    top: 0.2rem;
+    opacity: 100%;
+    border-bottom: .1rem solid var(--accent-1);
+}
+
+.project_category.active > span {
+    color: var(--accent-1);
+}
+
+/* Personal Projects Categories End */
+
+/* Personal Projects */
+
+.personal_projects_container {
+    align-self: center;
+    height: 24rem;
+    width: 65rem;
+    padding: 1rem 3rem 1rem 3rem;
+    overflow: hidden;
+}
+
+.personal_projects {
+    display: flex;
+    height: 20rem;
+    width: 65rem;
+    flex-direction: row;
+    row-gap: 1rem;
+    align-items: center;
+    justify-content: space-around;
+    animation: projectFadeIn 1.5s ease-in-out;
+}
+
+@keyframes projectFadeIn {
+    
+    from {
+        transform: translateY(65vh);
+        opacity: 10%;
+    }
+
+    to {
+        transform: translateY(0vh);
+        opacity: 100%;
+    }
+
+}
+
+.personal_projects_item {
+    position: relative;
+    height: 90%;
+    width: 20%;
+    background-color: teal;
+    border-radius: 2rem;
+    transform-style: flat;
+    transition: all 500ms ease-in-out;
+}
+
+.personal_projects_item::before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+}
+
+.personal_projects_item span {
+    position: absolute;
+    width: fit-content;
+    height: auto;
+    top: 15rem;
+    right: -2rem;
+    padding: 0.5rem;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.25rem;
+    text-align: center;
+    color: var(--background);
+    background-color: var(--accent-1);
+    white-space: nowrap;
+    transition: opacity 500ms ease-in-out;
+    z-index: 2;
+}
+
+.personal_projects_item:hover {
+    transform:
+        perspective(8000px)
+        translateZ(35rem)
+        rotateX(15deg);
+    background-color: green;
+    box-shadow: rgba(0, 0, 0, 0.25) 0rem 1rem 2rem 0.5rem;
+    cursor: pointer;
+}
+
+.personal_projects_item:hover span {
+    opacity: 50%;
+}
+
+/* Personal Project Images */
+
+#illustration_1 {
+    background: url("./images_and_videos/illustrator_1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: center;
+}
+
+#illustration_2 {
+    background: url("./images_and_videos/illustrator_2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: center;
+}
+
+#illustration_3 {
+    background: url("./images_and_videos/illustrator_3.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: center;
+}
+
+#illustration_4 {
+    background: url("./images_and_videos/illustrator_4.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: center;
+}
+
+
+/* Personal Projects End */
+
+/* Footer */

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A practice website for HTML, CSS, and JS.">
+
+        <link rel="stylesheet" href="./styles.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Noto+Serif&family=Rubik&display=swap" rel="stylesheet">
+        
+        <title>Landing Page</title>
+    </head>
+    <body onload="setup()">
+        <!-- Back to Top -->
+        <div id="back_to_top"></div>
+        <!-- Grid -->
+        <div class="container_grid">
+            <!-- DART 206 Projects -->
+            <div class="projects">
+                <div class="projects_text">
+                    <h2>My<br>DART 206<br>Projects</h2>
+                </div>
+                <div class="projects_list">
+                    <div class="project P1" >
+                        <h3>Project 1</h3>
+                        <div class="project_block P1B">
+                            <h3>Project 1</h3>
+                        </div>
+                    </div>
+                    <div class="project P2">
+                        <h3>Project 2</h3>
+                        <div class="project_block P2B">
+                            <h3>Project 2</h3>
+                        </div>
+                    </div>
+                    <div class="project P3">
+                        <h3>Project 3</h3>
+                        <div class="project_block P3B">
+                            <h3>Project 3</h3>
+                        </div>
+                    </div>
+                </div>
+                <a id="projects_button" href=""><span>Explore All</span></a>
+            </div>
+            <!-- Main -->
+            <div class="main">
+                <!-- Personal Projects -->
+                <h2>My personal projects</h2>
+                <ul class = "personal_projects_category">
+                    <li><button class="project_category"  id="default" onclick="openProjectCatgeory(event, 'illustration')"><span>Illustration</span></button></li>
+                    <li><button class="project_category" onclick="openProjectCatgeory(event, 'animation')"><span>Animation</span></button></li>
+                    <li><button class="project_category" onclick="openProjectCatgeory(event, 'coding')"><span>Coding</span></button></li>
+                    <li><button class="project_category" onclick="openProjectCatgeory(event, 'electronics')"><span>Electronics</span></button></li>
+                    <li><button class="project_category" onclick="openProjectCatgeory(event, 'editing')"><span>Editing</span></button></li>
+                </ul>
+                <div class="personal_projects_container">
+                    <div class="personal_projects" id="illustration">
+                        <div class="personal_projects_item" id="illustration_1">
+                            <span>Abstract portraiture</span>
+                        </div>
+                        <div class="personal_projects_item" id="illustration_2">
+                            <span>Social logo</span>
+                        </div>
+                        <div class="personal_projects_item" id="illustration_3">
+                            <span>Player card</span>
+                        </div>
+                        <div class="personal_projects_item" id="illustration_4">
+                            <span>Holiday special</span>
+                        </div>
+                    </div>
+                    <div class="personal_projects" id="animation">
+                        <div class="personal_projects_item" id="animation_1">
+                            <span>Animation title</span>
+                        </div>
+                        <div class="personal_projects_item" id="animation_2">
+                            <span>Animation title</span>
+                        </div>
+                        <div class="personal_projects_item" id="animation_3">
+                            <span>Animation title</span>
+                        </div>
+                        <div class="personal_projects_item" id="animation_4">
+                            <span>Animation title</span>
+                        </div>
+                    </div>
+                    <div class="personal_projects" id="coding">
+                        <div class="personal_projects_item" id="coding_1">
+                            <span>Coding title</span>
+                        </div>
+                        <div class="personal_projects_item" id="coding_2">
+                            <span>Coding title</span>
+                        </div>
+                        <div class="personal_projects_item" id="coding_3">
+                            <span>Coding title</span>
+                        </div>
+                        <div class="personal_projects_item" id="coding_4">
+                            <span>Coding title</span>
+                        </div>
+                    </div>
+                    <div class="personal_projects" id="electronics">
+                        <div class="personal_projects_item" id="electronics_1">
+                            <span>Electronics title</span>
+                        </div>
+                        <div class="personal_projects_item" id="electronics_2">
+                            <span>Electronics title</span>
+                        </div>
+                        <div class="personal_projects_item" id="electronics_3">
+                            <span>Electronics title</span>
+                        </div>
+                        <div class="personal_projects_item" id="electronics_4">
+                            <span>Electronics title</span>
+                        </div>
+                    </div>
+                    <div class="personal_projects" id="editing">
+                        <div class="personal_projects_item" id="editing_1">
+                            <span>Editing title</span>
+                        </div>
+                        <div class="personal_projects_item" id="editing_2">
+                            <span>Editing title</span>
+                        </div>
+                        <div class="personal_projects_item" id="editing_3">
+                            <span>Editing title</span>
+                        </div>
+                        <div class="personal_projects_item" id="editing_4">
+                            <span>Editing title</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Switch Project Category Script -->
+                <script>
+                    function openProjectCatgeory(e, category) {
+                        var i, content,  category_link;
+
+                        content = document.getElementsByClassName("personal_projects");
+                        
+                        for (i = 0; i < content.length; i++) {
+                            content[i].style.display = "none";
+                        }
+
+                        category_link = document.getElementsByClassName("project_category");
+                        
+                        for (i = 0; i < category_link.length; i++) {
+                            category_link[i].className = category_link[i].className.replace(" active", ""); 
+                        }
+
+                        document.getElementById(category).style.display = "flex";
+                        e.currentTarget.className += " active";
+                    }
+                </script>
+            </div>
+        </div>
+        <!-- Setup Script -->
+        <script>
+            function setup() {
+                document.getElementById("default").click();
+            }
+        </script>
+    </body>
+</html>
